@@ -12,25 +12,27 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Code extends Application {
-    public Button button1;
-    public Button button2;
+    public Button first;
+    public Button second;
     private static final Integer STARTTIME = 10;
     private Timeline timeline;
     private Label timerLabel = new Label();
     private Integer timeSeconds = STARTTIME;
     private int counter = 0;
     private Label count = new Label("Count: ");
-
     @Override
     public void start(Stage primaryStage) {
         VBox root = new VBox();
         Scene scene = new Scene(root, 500 ,500);
 
-        primaryStage.setTitle("Cookie Clicker");
+        primaryStage.setTitle("FastClicker");
         primaryStage.setScene(scene);
 
         root.setAlignment(Pos.CENTER);
@@ -38,20 +40,21 @@ public class Code extends Application {
 
         HBox buttonContainer = new HBox();
         buttonContainer.setAlignment(Pos.CENTER);
-        buttonContainer.setSpacing(50);
+        buttonContainer.setSpacing(100);
 
 
-        button1 = new Button("Click!!!");
-        button2 = new Button("Start");
-        buttonContainer.getChildren().addAll(button1, button2);
+        first = new Button("Click!!!");
+        second = new Button("Start");
+
+        buttonContainer.getChildren().addAll(first, second);
 
         root.getChildren().addAll(buttonContainer, timerLabel, count);
 
         timerLabel.setText(timeSeconds.toString());
         timerLabel.setTextFill(Color.RED);
-        timerLabel.setStyle("-fx-font-size: 4em;");
+        timerLabel.setStyle("-fx-font-size: 8em;");
 
-        button2.setOnAction(new EventHandler<ActionEvent>() {
+        second.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if(timeline != null){
@@ -68,7 +71,7 @@ public class Code extends Application {
                                     public void handle(ActionEvent event) {
                                         timeSeconds--;
                                         timerLabel.setText(timeSeconds.toString());
-                                        button1.setOnAction(e -> {
+                                        first.setOnAction(e -> {
                                             count.setText("Count: " + Integer.toString(counter));
                                             counter++;
                                             if(timeSeconds <= 0)
@@ -88,7 +91,7 @@ public class Code extends Application {
         });
 
 
-        scene.getStylesheets().add(this.getClass().getResource("Display.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("Background.css").toExternalForm());
         primaryStage.show();
     }
 

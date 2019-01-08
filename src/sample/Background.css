@@ -10,7 +10,9 @@ Button
     -fx-min-height: 50px;
     -fx-max-height: 50px;
     -fx-background-color: white;
-    -fx-border: red;
+    -fx-border-color: darkgreen;
+    -fx-border-width: 3;
+    -fx-border-style: segments(10, 15, 15, 15)  line-cap round ;
 }
 
 Button:pressed
