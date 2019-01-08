@@ -49,7 +49,8 @@ public class Game extends Application {
         buttonContainer.getChildren().addAll(first, second);
 
         root.getChildren().addAll(buttonContainer, timerLabel, count);
-
+        count.setTextFill(Color.BLUE);
+        count.setStyle("-fx-font-size: 5em;");
         timerLabel.setText(timeSeconds.toString());
         timerLabel.setTextFill(Color.RED);
         timerLabel.setStyle("-fx-font-size: 8em;");
