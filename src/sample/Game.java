@@ -18,7 +18,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Code extends Application {
+public class Game extends Application {
     public Button first;
     public Button second;
     private static final Integer STARTTIME = 10;
